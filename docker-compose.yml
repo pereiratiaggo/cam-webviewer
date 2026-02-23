@@ -4,9 +4,9 @@ services:
   cam-webviewer:
     build: .
     ports:
-      - "3000:3000"
+      - "${PORT-3000}:${PORT-3000}"
     environment:
-      - PORT=3000
+      - PORT=${PORT-3000}
       - CAM1=${CAM1}
       - CAM2=${CAM2}
       - CAM3=${CAM3}
