@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  cam-webviewer:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - CAM1=${CAM1}
+      - CAM2=${CAM2}
+      - CAM3=${CAM3}
+      - CAM4=${CAM4}
+      - CAM5=${CAM5}
+      - CAM6=${CAM6}
+      - CAM7=${CAM7}
+    env_file:
+      - .env
+    restart: unless-stopped

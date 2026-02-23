@@ -1,0 +1,17 @@
+{
+  "name": "cam-webviewer",
+  "version": "1.0.0",
+  "description": "Multi-camera web viewer with auto-refresh timer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["camera", "viewer", "rtc"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3"
+  }
+}
