@@ -30,6 +30,9 @@ docker-compose up -d
 
 Acesse em `http://localhost:3000`
 
+- `http://localhost:3000/?layout=1` → Layout 1
+- `http://localhost:3000/?layout=2` → Layout 2
+
 ## 📋 Configuração
 
 ### Variáveis de Ambiente (.env)
@@ -48,6 +51,7 @@ CAM2=<URL_DA_CAMERA_2>    # URL do stream da câmera 2
 - ✅ Câmeras com resolução 1x2 (ocupam duplo espaço)
 - ✅ Timer de auto-refresh configurável (padrão: 15 minutos)
 - ✅ Botão para resetar manualmente
+- ✅ Seletor de layout (Layout 1 / Layout 2) no painel de controle
 - ✅ Vídeos preenchem os quadros sem barras pretas
 - ✅ Variáveis de ambiente (seguro para GitHub)
 - ✅ Containerizado com Docker
@@ -73,7 +77,8 @@ docker-compose up
 
 ```
 .
-├── index.html           # Interface HTML
+├── index.html           # Layout 1
+├── layout2.html         # Layout 2
 ├── server.js            # Servidor Node.js
 ├── package.json         # Dependências
 ├── Dockerfile           # Configuração Docker

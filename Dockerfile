@@ -6,8 +6,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --production
 
-# Copiar arquivo HTML e servidor
+# Copiar arquivos HTML e servidor
 COPY index.html ./
+COPY layout2.html ./
 COPY server.js ./
 
 # Expor porta

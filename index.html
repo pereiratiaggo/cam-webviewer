@@ -205,6 +205,17 @@
         transition: background 0.2s;
     }
 
+    .layout-select {
+        width: 82px;
+        padding: 2px 4px;
+        border: 1px solid #555;
+        background: #1a1a1a;
+        color: #0f0;
+        border-radius: 2px;
+        font-size: 11px;
+        font-family: 'Courier New', monospace;
+    }
+
     .timer-controls button:hover {
         background: #777;
     }
@@ -241,6 +252,10 @@
         <span class="timer-display" id="timerDisplay">{{RESET_MINUTES}}:00</span>
         <div class="timer-controls">
             <input type="number" id="minutesInput" min="1" max="120" value="{{RESET_MINUTES}}">
+            <select id="layoutSelect" class="layout-select">
+                <option value="1">Layout 1</option>
+                <option value="2">Layout 2</option>
+            </select>
             <button id="setBtn">✓</button>
             <button id="resetBtn">⟳</button>
         </div>
@@ -264,8 +279,10 @@
 
     const timerDisplay = document.getElementById('timerDisplay');
     const minutesInput = document.getElementById('minutesInput');
+    const layoutSelect = document.getElementById('layoutSelect');
     const setBtn = document.getElementById('setBtn');
     const resetBtn = document.getElementById('resetBtn');
+    const currentLayout = '{{CURRENT_LAYOUT}}';
 
     function formatTime(seconds) {
         const mins = Math.floor(seconds / 60);
@@ -317,6 +334,12 @@
     // Event listeners
     setBtn.addEventListener('click', setNewTime);
     resetBtn.addEventListener('click', resetTimer);
+    layoutSelect.value = currentLayout;
+    layoutSelect.addEventListener('change', function() {
+        const params = new URLSearchParams(window.location.search);
+        params.set('layout', layoutSelect.value);
+        window.location.search = params.toString();
+    });
 
     // Iniciar timer ao carregar a página
     updateDisplay();
