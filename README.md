@@ -36,6 +36,7 @@ Acesse em `http://localhost:3000`
 
 ```env
 PORT=3000                  # Porta do servidor (padrão: 3000)
+RESET_MINUTES=15           # Tempo de reset automático em minutos (padrão: 15)
 CAM1=<URL_DA_CAMERA_1>    # URL do stream da câmera 1
 CAM2=<URL_DA_CAMERA_2>    # URL do stream da câmera 2
 # ... até CAM7

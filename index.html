@@ -238,9 +238,9 @@
 
     <!-- Timer Panel -->
     <div class="timer-panel">
-        <span class="timer-display" id="timerDisplay">15:00</span>
+        <span class="timer-display" id="timerDisplay">{{RESET_MINUTES}}:00</span>
         <div class="timer-controls">
-            <input type="number" id="minutesInput" min="1" max="120" value="15">
+            <input type="number" id="minutesInput" min="1" max="120" value="{{RESET_MINUTES}}">
             <button id="setBtn">✓</button>
             <button id="resetBtn">⟳</button>
         </div>
@@ -257,7 +257,8 @@
         });
     });
 
-    let totalSeconds = 15 * 60; // 15 minutos padrão
+    const defaultResetMinutes = parseInt('{{RESET_MINUTES}}', 10) || 15;
+    let totalSeconds = defaultResetMinutes * 60;
     let remainingSeconds = totalSeconds;
     let timerInterval;
 
